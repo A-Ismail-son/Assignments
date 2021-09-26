@@ -17,7 +17,7 @@ ensure => 'installed
 }
 
 exec { 'install script':
-command => '/usr/bin/curl -sL https://deb.nodesource.com/setup_12.x | sudo -E b>
+command => '/usr/bin/curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash-' 
 }
 
 
