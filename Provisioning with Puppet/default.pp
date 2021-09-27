@@ -3,18 +3,15 @@ exec {'apt-get update':
 command => '/usr/bin/apt-get update'
 }
 
-
 package { 'nodejs':
 ensure => installed,
 require => Exec['install script']
-
 
 }
 
 package { 'curl':
 ensure => 'installed,
 require => Exec['apt-get update']
-
 
 }
 
