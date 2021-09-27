@@ -4,25 +4,23 @@ command => '/usr/bin/apt-get update'
 }
 
 
-package { 'node':
-require => Exec['install script'],
+package { 'nodejs':
 ensure => installed,
+require => Exec['install script']
+
 
 }
 
 package { 'curl':
-require => Exec['apt-get update'],
-ensure => 'installed 
+ensure => 'installed,
+require => Exec['apt-get update']
+
 
 }
 
 exec { 'install script':
-command => '/usr/bin/curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash-' 
-}
+command => '/usr/bin/curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash-',
+require => Exec['apt-get update']
 
-
-exec { 'build essential':
-    require => Exec['install script', 'apt-get update'],
-    command => '/usr/bin/sudo apt-get install -y build-essential'
 }
 
