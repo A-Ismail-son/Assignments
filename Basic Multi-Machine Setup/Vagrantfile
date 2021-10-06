@@ -21,6 +21,7 @@ config.vm.provision "shell", inline: <<-SHELL
  config.vm.provision "puppet" do |puppet|
   puppet.manifests_path = "/etc/project_root/environments/test/manifests/"
   puppet.manifest_file = "default.pp"
+   puppet.module_path = "modules"
  
  end
     config.vm.define "appserver" do |appserver|
